@@ -48,10 +48,25 @@ class BookController: UIViewController {
                     self.contentView.frame.size = size
                     self.scrollView.contentSize = size
                     self.summaryView.sizeToFit()
+                    
+                    // Load Image
+                    self.loadImage(withId: id)
                 }
             })
         }
         // Do any additional setup after loading the view.
+    }
+    
+    func loadImage(withId id: String) {
+        let urlString = "https://books.google.com/books/content?printsec=frontcover&img=1&source=gbs_api&id=\(id)"
+        print("request url = \(urlString)")
+        let requestURL = URL(string: urlString)
+        DispatchQueue.global(qos: .background).async {
+            let data = try? Data(contentsOf: requestURL!)
+            DispatchQueue.main.async {
+                self.bookImageView.image = UIImage(data: data!)
+            }
+        }
     }
     
 
