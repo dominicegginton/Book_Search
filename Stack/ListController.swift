@@ -8,10 +8,15 @@
 
 import UIKit
 
-class ListController: UITableViewController {
-
+class ListController: UITableViewController, UISearchBarDelegate {
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet var bookTable: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.searchBar.delegate = self
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -19,28 +24,48 @@ class ListController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    //MARK: - Search Bar
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let searchText = searchBar.text {
+            print("search text: \(searchText)")
+            Books.sharedInstance.clear()
+            // Deprecated in IOS13
+            //UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            try? Books.sharedInstance.search(withText: searchText, {() in
+                print("search completed")
+                DispatchQueue.main.async {
+                    // Deprecated in IOS13
+                    //UIApplication.shared.isNetworkActivityIndicatorVisible = flase
+                    self.tableView.reloadData()
+                    self.searchBar.resignFirstResponder()
+                }
+            })
+        }
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return Books.sharedInstance.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath)
+        
+        let book: Book = try! Books.sharedInstance.getBook(at: indexPath.row)
+        
+        if let label = cell.textLabel, let detail = cell.detailTextLabel {
+            label.text = book.title
+            detail.text = book.author
+        }
+        
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -77,14 +102,24 @@ class ListController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showBook" {
+            print("segue with \(segue.identifier!) indentifier triggered")
+            if let indexPath = self.bookTable.indexPathForSelectedRow {
+                print("found row \(indexPath.row)")
+                if let navigationController = segue.destination as? UINavigationController{
+                    if let bookController = navigationController.topViewController as? BookController {
+                        print("found book controller")
+                        bookController.bookID = try! Books.sharedInstance.getBook(at: indexPath.row).id
+                    }
+                }
+            }
+        }
     }
-    */
 
 }
