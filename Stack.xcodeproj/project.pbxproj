@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		F2046A54233B592C004AD354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2046A53233B592C004AD354 /* AppDelegate.swift */; };
 		F2046A56233B592C004AD354 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2046A55233B592C004AD354 /* SceneDelegate.swift */; };
-		F2046A58233B592C004AD354 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2046A57233B592C004AD354 /* ViewController.swift */; };
 		F2046A5B233B592D004AD354 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2046A59233B592D004AD354 /* Main.storyboard */; };
 		F2046A5E233B592D004AD354 /* Stack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F2046A5C233B592D004AD354 /* Stack.xcdatamodeld */; };
 		F2046A60233B592F004AD354 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2046A5F233B592F004AD354 /* Assets.xcassets */; };
 		F2046A63233B592F004AD354 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2046A61233B592F004AD354 /* LaunchScreen.storyboard */; };
 		F2046A6E233B592F004AD354 /* StackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2046A6D233B592F004AD354 /* StackTests.swift */; };
 		F2046A79233B592F004AD354 /* StackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2046A78233B592F004AD354 /* StackUITests.swift */; };
+		F2046A87233B5ADF004AD354 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2046A86233B5ADF004AD354 /* SplitViewController.swift */; };
+		F2046A89233B5B4D004AD354 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2046A88233B5B4D004AD354 /* ListController.swift */; };
+		F2046A8B233B5B84004AD354 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2046A8A233B5B84004AD354 /* BookController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +41,6 @@
 		F2046A50233B592C004AD354 /* Stack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2046A53233B592C004AD354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2046A55233B592C004AD354 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F2046A57233B592C004AD354 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F2046A5A233B592D004AD354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F2046A5D233B592D004AD354 /* Stack.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Stack.xcdatamodel; sourceTree = "<group>"; };
 		F2046A5F233B592F004AD354 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +52,9 @@
 		F2046A74233B592F004AD354 /* StackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2046A78233B592F004AD354 /* StackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackUITests.swift; sourceTree = "<group>"; };
 		F2046A7A233B592F004AD354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2046A86233B5ADF004AD354 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		F2046A88233B5B4D004AD354 /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
+		F2046A8A233B5B84004AD354 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,12 +107,14 @@
 			children = (
 				F2046A53233B592C004AD354 /* AppDelegate.swift */,
 				F2046A55233B592C004AD354 /* SceneDelegate.swift */,
-				F2046A57233B592C004AD354 /* ViewController.swift */,
 				F2046A59233B592D004AD354 /* Main.storyboard */,
 				F2046A5F233B592F004AD354 /* Assets.xcassets */,
 				F2046A61233B592F004AD354 /* LaunchScreen.storyboard */,
 				F2046A64233B592F004AD354 /* Info.plist */,
 				F2046A5C233B592D004AD354 /* Stack.xcdatamodeld */,
+				F2046A86233B5ADF004AD354 /* SplitViewController.swift */,
+				F2046A88233B5B4D004AD354 /* ListController.swift */,
+				F2046A8A233B5B84004AD354 /* BookController.swift */,
 			);
 			path = Stack;
 			sourceTree = "<group>";
@@ -262,10 +268,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2046A8B233B5B84004AD354 /* BookController.swift in Sources */,
 				F2046A5E233B592D004AD354 /* Stack.xcdatamodeld in Sources */,
-				F2046A58233B592C004AD354 /* ViewController.swift in Sources */,
+				F2046A89233B5B4D004AD354 /* ListController.swift in Sources */,
 				F2046A54233B592C004AD354 /* AppDelegate.swift in Sources */,
 				F2046A56233B592C004AD354 /* SceneDelegate.swift in Sources */,
+				F2046A87233B5ADF004AD354 /* SplitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
