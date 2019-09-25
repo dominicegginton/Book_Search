@@ -24,6 +24,8 @@ class BookController: UIViewController {
     @IBOutlet weak var bookImageView: UIImageView!
     @IBOutlet weak var bookTitleLabel: UILabel!
     @IBOutlet weak var bookDescriptionLabel: UILabel!
+    @IBOutlet weak var bookAuthorLabel: UILabel!
+    @IBOutlet weak var bookPublicationDataLabel: UILabel!
     
     var bookID: String?
 
@@ -38,6 +40,8 @@ class BookController: UIViewController {
                     self.bookTitleLabel.text = bookDetails.title
                     self.bookDescriptionLabel.text = bookDetails.description
                     self.bookDescriptionLabel.sizeToFit()
+                    self.bookAuthorLabel.text = bookDetails.author
+                    self.bookPublicationDataLabel.text = bookDetails.publicationYear
                     
                     // Update View Heights
                     self.summaryViewHeightConstraint.constant = self.bookImageView.frame.height + 16

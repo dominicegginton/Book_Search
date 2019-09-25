@@ -18,6 +18,7 @@ struct BookDetails {
     var title: String
     var author: String
     var description: String
+    var publicationYear: String
 }
 
 enum BookError: Error {
@@ -114,9 +115,12 @@ class Books {
                 let title = volumeInfo["title"] as? String ?? "Title not found"
                 let authorArray = volumeInfo["authors"] as? [String] ?? ["Author not found"]
                 let author = authorArray.joined(separator: ", ")
-                let description = volumeInfo["description"] as? String ?? "Decription not found"
+                let descriptionString = volumeInfo["description"] as? String ?? "Decription not found"
+                let description = self.cleanDescription(description: descriptionString)
+                let publishedDateString = volumeInfo["publishedDate"] as? String
+                let publishedYear = self.convertDateToYear(publishedDateString!) ?? "Published date not found"
                 
-                let bookDetails = BookDetails(title: title, author: author, description: description)
+                let bookDetails = BookDetails(title: title, author: author, description: description, publicationYear: publishedYear)
                 completion(bookDetails)
             } catch {
                 print("error thrown \(error)")
@@ -124,4 +128,26 @@ class Books {
             }).resume()
     }
     
+    func convertDateToYear(_ dateAsString: String) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-mm-dd"
+        guard let formattedDate = dateFormatter.date(from: dateAsString) else {
+            return nil
+        }
+        dateFormatter.dateFormat = "yyyy"
+        return dateFormatter.string(from: formattedDate)
+    }
+    
+    func cleanDescription(description dirtyDescription: String) -> String {
+        return dirtyDescription
+            .replacingOccurrences(of: "<br>", with: "\n")
+            .replacingOccurrences(of: "<b>", with: "")
+            .replacingOccurrences(of: "</b>", with: "")
+            .replacingOccurrences(of: "<p>", with: "")
+            .replacingOccurrences(of: "</p>", with: "")
+            .replacingOccurrences(of: "<ul>", with: "\n")
+            .replacingOccurrences(of: "</ul>", with: "\n")
+            .replacingOccurrences(of: "<li>", with: "\n• ")
+            .replacingOccurrences(of: "</li>", with: "")
+    }
 }
