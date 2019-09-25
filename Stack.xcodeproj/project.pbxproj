@@ -18,6 +18,7 @@
 		F2046A87233B5ADF004AD354 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2046A86233B5ADF004AD354 /* SplitViewController.swift */; };
 		F2046A89233B5B4D004AD354 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2046A88233B5B4D004AD354 /* ListController.swift */; };
 		F2046A8B233B5B84004AD354 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2046A8A233B5B84004AD354 /* BookController.swift */; };
+		F2046A8D233B5D09004AD354 /* Books.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2046A8C233B5D09004AD354 /* Books.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		F2046A86233B5ADF004AD354 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		F2046A88233B5B4D004AD354 /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
 		F2046A8A233B5B84004AD354 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
+		F2046A8C233B5D09004AD354 /* Books.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Books.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				F2046A86233B5ADF004AD354 /* SplitViewController.swift */,
 				F2046A88233B5B4D004AD354 /* ListController.swift */,
 				F2046A8A233B5B84004AD354 /* BookController.swift */,
+				F2046A8C233B5D09004AD354 /* Books.swift */,
 			);
 			path = Stack;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				F2046A8B233B5B84004AD354 /* BookController.swift in Sources */,
 				F2046A5E233B592D004AD354 /* Stack.xcdatamodeld in Sources */,
 				F2046A89233B5B4D004AD354 /* ListController.swift in Sources */,
+				F2046A8D233B5D09004AD354 /* Books.swift in Sources */,
 				F2046A54233B592C004AD354 /* AppDelegate.swift in Sources */,
 				F2046A56233B592C004AD354 /* SceneDelegate.swift in Sources */,
 				F2046A87233B5ADF004AD354 /* SplitViewController.swift in Sources */,
