@@ -19,6 +19,7 @@ struct BookDetails {
     var author: String
     var description: String
     var publicationYear: String
+    var isbn: [String]
 }
 
 enum BookError: Error {
@@ -120,7 +121,17 @@ class Books {
                 let publishedDateString = volumeInfo["publishedDate"] as? String
                 let publishedYear = self.convertDateToYear(publishedDateString!) ?? "Published date not found"
                 
-                let bookDetails = BookDetails(title: title, author: author, description: description, publicationYear: publishedYear)
+                guard let industryIdentifiers = volumeInfo["industryIdentifiers"] as! NSArray? else {
+                    throw BookError.InvalidKey("industryIdentifiers")
+                }
+                var isbnNumbers: [String] = []
+                for indetifer in industryIdentifiers {
+                    if let indetiferDict = indetifer as? NSDictionary {
+                        isbnNumbers.append(indetiferDict["identifier"] as? String ?? "ISBN not found")
+                    }
+                }
+                
+                let bookDetails = BookDetails(title: title, author: author, description: description, publicationYear: publishedYear, isbn: isbnNumbers)
                 completion(bookDetails)
             } catch {
                 print("error thrown \(error)")

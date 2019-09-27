@@ -69,18 +69,27 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4A-jn-ILX">
+                                                        <rect key="frame" x="8" y="8" width="282" height="0.0"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
+                                                    <constraint firstItem="u4A-jn-ILX" firstAttribute="top" secondItem="A7D-dh-7JX" secondAttribute="bottom" id="1F7-eZ-LMd"/>
                                                     <constraint firstItem="A7D-dh-7JX" firstAttribute="top" secondItem="0V8-8g-ByI" secondAttribute="bottom" id="95P-9s-WuQ"/>
                                                     <constraint firstItem="LhP-xB-5ea" firstAttribute="leading" secondItem="5mE-fu-oAY" secondAttribute="trailing" id="Aq3-kC-OwG"/>
                                                     <constraint firstItem="LhP-xB-5ea" firstAttribute="top" secondItem="ENU-N2-Jw7" secondAttribute="topMargin" id="BiO-tY-0mi"/>
+                                                    <constraint firstItem="LhP-xB-5ea" firstAttribute="leading" secondItem="u4A-jn-ILX" secondAttribute="trailing" id="CTe-Ra-aiI"/>
                                                     <constraint firstItem="A7D-dh-7JX" firstAttribute="leading" secondItem="ENU-N2-Jw7" secondAttribute="leadingMargin" id="a3I-Z8-Za5"/>
                                                     <constraint firstItem="0V8-8g-ByI" firstAttribute="top" secondItem="5mE-fu-oAY" secondAttribute="bottom" id="aJ6-O8-RBf"/>
                                                     <constraint firstItem="5mE-fu-oAY" firstAttribute="leading" secondItem="ENU-N2-Jw7" secondAttribute="leadingMargin" id="aLz-Hi-Rqh"/>
                                                     <constraint firstItem="LhP-xB-5ea" firstAttribute="leading" secondItem="A7D-dh-7JX" secondAttribute="trailing" id="aXg-Th-WAH"/>
                                                     <constraint firstAttribute="height" constant="180" id="dhG-O9-AQp"/>
                                                     <constraint firstItem="LhP-xB-5ea" firstAttribute="leading" secondItem="0V8-8g-ByI" secondAttribute="trailing" id="j2J-f1-K5i"/>
+                                                    <constraint firstItem="u4A-jn-ILX" firstAttribute="leading" secondItem="ENU-N2-Jw7" secondAttribute="leadingMargin" id="tx7-Ig-JgW"/>
                                                     <constraint firstItem="5mE-fu-oAY" firstAttribute="top" secondItem="ENU-N2-Jw7" secondAttribute="topMargin" id="vfH-s7-mYl"/>
                                                     <constraint firstItem="0V8-8g-ByI" firstAttribute="leading" secondItem="ENU-N2-Jw7" secondAttribute="leadingMargin" id="wHk-Zv-5dM"/>
                                                     <constraint firstAttribute="trailingMargin" secondItem="LhP-xB-5ea" secondAttribute="trailing" id="wzN-Ns-luc"/>
@@ -144,6 +153,7 @@
                     <connections>
                         <outlet property="bookAuthorLabel" destination="0V8-8g-ByI" id="kxf-2G-kru"/>
                         <outlet property="bookDescriptionLabel" destination="yUZ-Ig-NjS" id="pL4-cN-63g"/>
+                        <outlet property="bookISBNLabel" destination="u4A-jn-ILX" id="T4m-Cn-lM8"/>
                         <outlet property="bookImageView" destination="LhP-xB-5ea" id="7g1-fc-X1c"/>
                         <outlet property="bookPublicationDataLabel" destination="A7D-dh-7JX" id="tvW-cA-nWe"/>
                         <outlet property="bookTitleLabel" destination="5mE-fu-oAY" id="qOW-xg-wkF"/>
